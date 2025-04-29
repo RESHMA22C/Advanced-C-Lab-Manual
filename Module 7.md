@@ -15,13 +15,58 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
+#include <string.h>
 
-//type your code here
+// Structure to store name and age
+struct eligible {
+    char name[50];
+    int age;
+};
+
+int main() {
+    int i, n;
+
+    // Ask how many people to check
+    printf("Enter the number of persons: ");
+    scanf("%d", &n);
+
+    // Declare an array of structures
+    struct eligible e[n];
+
+    // Input details for each person
+    for(i = 0; i < n; i++) {
+        printf("\nEnter name of person %d: ", i + 1);
+        scanf("%s", e[i].name);
+
+        printf("Enter age of person %d: ", i + 1);
+        scanf("%d", &e[i].age);
+    }
+
+    // Check eligibility and display results
+    printf("\n--- VACCINE ELIGIBILITY STATUS ---\n");
+    for(i = 0; i < n; i++) {
+        printf("\nName: %s", e[i].name);
+        printf("\nAge: %d", e[i].age);
+
+        if(e[i].age > 6) {
+            printf("\nVaccine Eligibility: Yes\n");
+        } else {
+            printf("\nVaccine Eligibility: No\n");
+        }
+    }
+
+    return 0;
+}
+```
+
 
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/e7d9da03-acb3-41b4-8501-d60040361852)
+
 
 
 Result:
@@ -44,17 +89,47 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+// Step 1: Define structure 'numbers' with members a and b
+struct numbers {
+    int a;
+    int b;
+};
 
+// Function that takes a structure as argument and returns a structure
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b; // sum stored in result.a
+    result.b = 0;         // optional, no use here
+    return result;
+}
+
+int main() {
+    struct numbers n, sum;
+
+    // Step 3 & 4: Input values for a and b
+    printf("Enter two numbers:\n");
+    printf("a = ");
+    scanf("%d", &n.a);
+    printf("b = ");
+    scanf("%d", &n.b);
+
+    // Step 5: Call add function
+    sum = add(n);
+
+    // Step 6: Print the result
+    printf("Sum = %d\n", sum.a);
+
+    return 0;
+}
+```
 
 
 Output:
 
-
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/cc6e0b6c-194b-4610-bce3-ec74bb1f520d)
 
 
 Result:
@@ -85,26 +160,46 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```#include <stdio.h>
 
-//type your code here
+int main() {
+    FILE *p;
+    char name[100];
 
+    // Step 4: Read file name from user
+    printf("Enter the file name to create: ");
+    scanf("%s", name);
+
+    // Step 5: Inform user
+    printf("Creating file: %s\n", name);
+
+    // Step 6: Open file in write mode
+    p = fopen(name, "w");
+
+    if (p == NULL) {
+        // File opening failed
+        printf("Error: Unable to create the file %s\n", name);
+        return 1; // Exit with error
+    }
+
+    // Step 7: Success message
+    printf("File '%s' opened successfully in write mode.\n", name);
+
+    // Step 8: Close the file
+    fclose(p);
+
+    // Step 9: Confirm file is closed
+    printf("File '%s' closed successfully.\n", name);
+
+    return 0; // Step 10: End of program
+}
+```
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/6bf77ae0-4f3e-4c98-9927-65cd2b176407)
 
 Result:
 Thus, the program is verified successfully
@@ -132,20 +227,55 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    FILE *p;
+    char name[100], text[200];
+    int num, i;
 
+    // Step 4: Read file name and number of strings from user
+    printf("Enter the file name to write into: ");
+    scanf("%s", name);
 
+    printf("Enter the number of lines to insert: ");
+    scanf("%d", &num);
+
+    // Step 5: Open file in write mode
+    p = fopen(name, "w");
+
+    if (p == NULL) {
+        printf("Error: Unable to open or create the file %s\n", name);
+        return 1;
+    }
+
+    // Step 6: Success message
+    printf("File '%s' opened successfully for writing.\n", name);
+
+    // Step 7: Loop to get text input and write to file
+    printf("Enter the text lines:\n");
+    for(i = 0; i < num; i++) {
+        printf("Line %d: ", i + 1);
+        getchar(); // Clear newline character from buffer
+        fgets(text, sizeof(text), stdin); // Read full line including spaces
+        fputs(text, p); // Write line to file
+    }
+
+    // Step 8: Close the file
+    fclose(p);
+
+    // Step 9: Success message
+    printf("Text successfully written to '%s'.\n", name);
+
+    return 0;
+}
+```
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/f3f81be4-4493-4b91-8e2f-bbaffcf8137b)
 
 
 Result:
@@ -186,21 +316,62 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+// Step 1: Define structure for subject details
+struct Subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    struct Subject *s;
+    int n, i;
+
+    // Step 2: Input number of subjects
+    printf("Enter the number of subjects: ");
+    scanf("%d", &n);
+
+    // Step 3 & 4: Dynamically allocate memory for n subjects
+    s = (struct Subject *)malloc(n * sizeof(struct Subject));
+
+    // Step 5: Check if memory allocation was successful
+    if (s == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Step 6 & 7: Input subject details
+    printf("\nEnter subject name and marks:\n");
+    for (i = 0; i < n; i++) {
+        printf("\nSubject %d Name: ", i + 1);
+        scanf("%s", s[i].name);
+        printf("Subject %d Marks: ", i + 1);
+        scanf("%d", &s[i].marks);
+    }
+
+    // Step 8 & 9: Display subject details
+    printf("\n--- Subject Details ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject %d: %s, Marks: %d\n", i + 1, s[i].name, s[i].marks);
+    }
+
+    // Step 10 & 11: Free allocated memory
+    free(s);
+
+    // Step 12 & 13: End program
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/4cea1360-2d56-498d-9952-28863f77d1a2)
 
 Result:
 Thus, the program is verified successfully
