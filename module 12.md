@@ -210,12 +210,11 @@ void peek()
 {
     printf("%c",front->data);
 }
+```
 
 Output:
 
-
-
-![442275285-b5053c98-3a2b-4dbe-8917-8ea29e602a5f](https://github.com/user-attachments/assets/055c2376-48db-4033-bd41-4bc185a5fec8)
+![image](https://github.com/user-attachments/assets/61ab8a2a-9af3-4b7e-ad31-708b1b23ad85)
 
 
 Result:
