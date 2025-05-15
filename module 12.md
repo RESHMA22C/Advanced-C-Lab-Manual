@@ -213,7 +213,8 @@ void peek()
 
 Output:
 
-![image](https://github.com/user-attachments/assets/9e91ad29-34ba-46ec-9133-46a762496242)
+![image](https://github.com/user-attachments/assets/cec2f8bc-c32b-41ff-9f86-1fea7ddeb355)
+
 
 
 
