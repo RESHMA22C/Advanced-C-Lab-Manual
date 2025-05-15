@@ -213,10 +213,9 @@ void peek()
 
 Output:
 
-![image](https://github.com/user-attachments/assets/cec2f8bc-c32b-41ff-9f86-1fea7ddeb355)
 
 
-
+![442275285-b5053c98-3a2b-4dbe-8917-8ea29e602a5f](https://github.com/user-attachments/assets/055c2376-48db-4033-bd41-4bc185a5fec8)
 
 
 Result:
